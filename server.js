@@ -3,10 +3,10 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
+require('dotenv').config();
 // Constants
-const PORT = 8085;
-const HOST = '0.0.0.0';
+const PORT = process.env.PORT
+//const HOST = '0.0.0.0';
 
 // App
 const app = express();
@@ -21,5 +21,5 @@ app.post('/quote', (req, res) => {
   res.json({ status : 200, message : 'Quote success',  name : reqData.username });
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+app.listen(PORT);
+console.log(`Running on http://localhost:${PORT}`);
