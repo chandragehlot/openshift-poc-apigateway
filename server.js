@@ -15,6 +15,10 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get('/', (req,res) => {
+  res.status(200).send("welcome to OpenShift Learning Gateway");
+});
+
 app.post('/quote', (req, res) => {
   const reqData = req.body;
   console.log('username', reqData.username);
